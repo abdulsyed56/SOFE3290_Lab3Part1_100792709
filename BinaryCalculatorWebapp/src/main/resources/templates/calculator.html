@@ -69,14 +69,16 @@
     <table id="calcu">
         <tr>
             <td colspan="2"><input type="text" id="operand1" name="operand1" th:value="${operand1}" onfocus="focusFun(false)" readonly></td>
-            <td colspan="1"> <select id="operator" name="operator"  >
-			<option value="+">+</option>
-			<option value="*">*</option>
-			<option value="|">|</option>
-			<option value="&">&</option>
-			<option value=" " hidden selected="selected" > </option>
-			</select></td>
-            <td colspan="2"><input type="text" id="operand2" name="operand2" onfocus="focusFun(true)" readonly></td>
+            <td colspan="1">
+		    <select id="operator" name="operator">
+		        <option value="+" th:selected="${operator == '+'}">+</option>
+		        <option value="*" th:selected="${operator == '*'}">*</option>
+		        <option value="|" th:selected="${operator == '|'}">|</option>
+		        <option value="&" th:selected="${operator == '&'}">&amp;</option>
+		        <option value=" " hidden th:selected="${operator == ' '}"> </option>
+		    </select>
+			</td>
+			<td colspan="2"><input type="text" id="operand2" name="operand2" th:value="${operand2}" onfocus="focusFun(true)" readonly></td>
             
         </tr>
         <tr>
