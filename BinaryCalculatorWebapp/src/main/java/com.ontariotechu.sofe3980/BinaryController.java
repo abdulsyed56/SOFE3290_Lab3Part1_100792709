@@ -11,46 +11,48 @@ public class BinaryController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("a", "");
-        model.addAttribute("b", "");
-        model.addAttribute("op", "+");
+        model.addAttribute("operand1", "");
+        model.addAttribute("operand2", "");
+        model.addAttribute("operator", " ");
         model.addAttribute("result", "");
+        model.addAttribute("operand1Focused", false);
         return "calculator";
     }
 
     @PostMapping("/")
     public String result(
-            @RequestParam("a") String a,
-            @RequestParam("b") String b,
-            @RequestParam("op") String op,
+            @RequestParam(name = "operand1", required = false, defaultValue = "") String operand1,
+            @RequestParam(name = "operand2", required = false, defaultValue = "") String operand2,
+            @RequestParam(name = "operator", required = false, defaultValue = " ") String operator,
             Model model) {
 
-        Binary left = new Binary(a);
-        Binary right = new Binary(b);
+        Binary number1 = new Binary(operand1);
+        Binary number2 = new Binary(operand2);
         Binary result;
 
-        switch (op) {
+        switch (operator) {
             case "+":
-                result = Binary.add(left, right);
+                result = Binary.add(number1, number2);
                 break;
             case "*":
-                result = Binary.multiply(left, right);
+                result = Binary.multiply(number1, number2);
                 break;
             case "&":
-                result = Binary.and(left, right);
+                result = Binary.and(number1, number2);
                 break;
             case "|":
-                result = Binary.or(left, right);
+                result = Binary.or(number1, number2);
                 break;
             default:
                 result = new Binary("0");
                 break;
         }
 
-        model.addAttribute("a", left.getValue());
-        model.addAttribute("b", right.getValue());
-        model.addAttribute("op", op);
+        model.addAttribute("operand1", number1.getValue());
+        model.addAttribute("operand2", number2.getValue());
+        model.addAttribute("operator", operator);
         model.addAttribute("result", result.getValue());
+        model.addAttribute("operand1Focused", true);
 
         return "calculator";
     }
