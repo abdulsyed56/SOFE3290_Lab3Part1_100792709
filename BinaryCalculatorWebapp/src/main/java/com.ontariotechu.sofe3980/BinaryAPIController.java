@@ -27,4 +27,24 @@ public class BinaryAPIController {
 		// http://localhost:8080/add?operand1=111&operand2=1010
 	}
 
+	 @GetMapping("/add")
+    public String add(@RequestParam String a, @RequestParam String b) {
+        return Binary.add(new Binary(a), new Binary(b)).getValue();
+    }
+
+    @GetMapping("/mul")
+    public String mul(@RequestParam String a, @RequestParam String b) {
+        return Binary.multiply(new Binary(a), new Binary(b)).getValue();
+    }
+
+    @GetMapping("/and")
+    public String and(@RequestParam String a, @RequestParam String b) {
+        return Binary.and(new Binary(a), new Binary(b)).getValue();
+    }
+
+    @GetMapping("/or")
+    public String or(@RequestParam String a, @RequestParam String b) {
+        return Binary.or(new Binary(a), new Binary(b)).getValue();
+    }
+
 }
