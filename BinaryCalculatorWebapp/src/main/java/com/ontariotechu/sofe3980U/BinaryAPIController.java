@@ -86,3 +86,4 @@ public class BinaryAPIController {
         Binary number2 = new Binary(operand2);
         return new BinaryAPIResult(number1, "or", number2, Binary.or(number1, number2));
     }
+}
