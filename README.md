@@ -29,13 +29,13 @@ managing many images and containers can become complicated in large systems if t
 
 ## Laboratory Code Instructions & Steps to Execute
 
-A new Google Cloud project was created and configured in Cloud Shell to host the container registry and Kubernetes cluster.
-Lab 3 github repository of my own was cloned into Cloud Shell, which had my lab2 calculator application files along with the Dockerfile and Kubernetes configuration files.
-After cloning the repository, the application was built using Maven to compile the Java source code and generate the application package.
-Once the application was compiled, a Docker image was created using the Dockerfile in the repository. This image contained the compiled application along with the runtime environment to execute the webapp/application.
-The Docker image was marked and pushed to Google Artifact Registry, so the Kubernetes cluster can download the image when creating containers.
-After the image was available in Artifact Registry, a Kubernetes deployment file was used to deploy the application.
-Once the deployment was created, Kubernetes started a pod containing the calculator container. The pod status was verified using the command: kubectl get pods
-When the pod reached the Running state, a Kubernetes service was created to expose the application. The service type used in this lab was LoadBalancer, which automatically assigns a public/external IP address.
-The service status was checked using: kubectl get service
-The external IP address provided by the service allowed the calculator to be accessed from a web browser. http://34.63.45.21:8080
+1. A new Google Cloud project was created and configured in Cloud Shell to host the container registry and Kubernetes cluster.  
+2. Lab 3 github repository of my own was cloned into Cloud Shell, which had my lab2 calculator application files along with the Dockerfile and Kubernetes configuration files.
+3. After cloning the repository, the application was built using Maven to compile the Java source code and generate the application package.  
+4. Once the application was compiled, a Docker image was created using the Dockerfile in the repository. This image contained the compiled application along with the runtime environment to execute the webapp/application.  
+5. The Docker image was marked and pushed to Google Artifact Registry, so the Kubernetes cluster can download the image when creating containers.  
+6. After the image was available in Artifact Registry, a Kubernetes deployment file was used to deploy the application.  
+7. Once the deployment was created, Kubernetes started a pod containing the calculator container. The pod status was verified using the command: *kubectl get pods*
+8. When the pod reached the Running state, a Kubernetes service was created to expose the application. The service type used in this lab was LoadBalancer, which automatically assigns a public/external IP address.  
+9. The service status was checked using: *kubectl get service*  
+10. The external IP address provided by the service allowed the calculator to be accessed from a web browser. *http://34.63.45.21:8080*  
