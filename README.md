@@ -39,3 +39,8 @@ managing many images and containers can become complicated in large systems if t
 8. When the pod reached the Running state, a Kubernetes service was created to expose the application. The service type used in this lab was LoadBalancer, which automatically assigns a public/external IP address.  
 9. The service status was checked using: *kubectl get service*  
 10. The external IP address provided by the service allowed the calculator to be accessed from a web browser. *http://34.63.45.21:8080*  
+
+
+## Video Links
+MySQL Deployments: 
+Binary Calculator Deployment and Testing: 
